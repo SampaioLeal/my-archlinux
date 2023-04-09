@@ -1,7 +1,8 @@
 #!/bin/bash
-
 USERNAME="$(whoami)"
 INITIAL_DIR="$(pwd)"
+
+set -e
 
 ###
 ### Installing yay
@@ -77,6 +78,6 @@ yay -S --noconfirm microsoft-edge-stable-bin
 ###
 ### Installing LightDM
 ###
-yay -S lightdm lightdm-theme-neon-git
+yay -S --noconfirm lightdm lightdm-theme-neon-git
 cat /etc/lightdm/web-greeter.yml
 systemctl enable lightdm.service
