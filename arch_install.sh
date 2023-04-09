@@ -70,6 +70,15 @@ gen_fstab() {
   genfstab -U /mnt >> /mnt/etc/fstab
 }
 
+copy_scripts() {
+  cp $0 /mnt/setup.sh
+  mkdir /mnt/post-setup
+  cp ./install_yay.sh /mnt/post-setup/install_yay.sh
+  cp ./install_shell.sh /mnt/post-setup/install_shell.sh
+  cp ./install_packages.sh /mnt/post-setup/install_packages.sh
+  cp -r ./zsh /mnt/post-setup/zsh
+}
+
 ### Configure phase
 
 clean_packages() {
@@ -160,11 +169,9 @@ setup() {
 
   gen_fstab
 
+  copy_scripts
+
   echo "Chrooting into installed system to continue setup..."
-  cp $0 /mnt/setup.sh
-  mkdir /mnt/post-setup
-  cp ./install_packages.sh /mnt/post-setup/install_packages.sh
-  cp -r ./zsh /mnt/post-setup/zsh
   arch-chroot /mnt ./setup.sh chroot
 
   if [ -f /mnt/setup.sh ]
