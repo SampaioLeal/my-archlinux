@@ -99,6 +99,7 @@ npm install -g yarn
 ###
 ### Install Deno
 ###
+curl -fsSL https://deno.land/x/install/install.sh | sh
 
 ###
 ### Install kubernetes things (kubectl, ksutomize, krew (ctx and ns), lens, helm)
