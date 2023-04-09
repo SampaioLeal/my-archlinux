@@ -19,7 +19,8 @@ mkdir -p $HOME/.config/hypr
 # TODO: add image viewer
 echo "Installing things..."
 yay -S --noconfirm polkit-gnome ffmpeg kitty visual-studio-code-bin spotify discord microsoft-edge-stable-bin pokemon-colorscripts-git dunst rofi playerctl sddm-git
- 
+sudo systemctl enable sddm.service
+
 ###
 ### Installing NVM and Yarn
 ###
@@ -43,3 +44,10 @@ curl -fsSL https://deno.land/x/install/install.sh | sh
 yarn global add awsp
 
 # TODO: configure pipewire
+# TODO: configure hyprland
+# TODO: configure waybar
+# TODO: configure wlogout
+# TODO: configure swaylock-effects
+# TODO: configure dunst
+# TODO: configure rofi
+# TODO: configure sddm locale and theme
