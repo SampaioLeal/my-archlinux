@@ -162,6 +162,7 @@ setup() {
 
   echo "Chrooting into installed system to continue setup..."
   cp $0 /mnt/setup.sh
+  mkdir /mnt/post-setup
   cp ./install_packages.sh /mnt/post-setup/install_packages.sh
   cp -r ./zsh /mnt/post-setup/zsh
   arch-chroot /mnt ./setup.sh chroot
