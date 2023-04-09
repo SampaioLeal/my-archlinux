@@ -18,7 +18,7 @@ mkdir -p $HOME/.config/hypr
 ###
 # TODO: add image viewer
 echo "Installing things..."
-yay -S --noconfirm polkit-gnome ffmpeg kitty visual-studio-code-bin spotify discord microsoft-edge-stable-bin pokemon-colorscripts-git dunst rofi playerctl sddm-git
+yay -S --noconfirm polkit-gnome ffmpeg kitty visual-studio-code-bin spotify discord microsoft-edge-stable-bin pokemon-colorscripts-git dunst rofi-lbonn-wayland-git playerctl sddm-git
 sudo systemctl enable sddm.service
 
 ###
@@ -45,9 +45,11 @@ yarn global add awsp
 
 # TODO: configure pipewire
 # TODO: configure hyprland
+# TODO: add hyprpaper
 # TODO: configure waybar
 # TODO: configure wlogout
 # TODO: configure swaylock-effects
 # TODO: configure dunst
 # TODO: configure rofi
 # TODO: configure sddm locale and theme
+# TODO: add file explorer

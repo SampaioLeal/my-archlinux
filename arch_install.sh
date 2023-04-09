@@ -10,7 +10,7 @@ USER_NAME="sampaiol"
 CUSTOM_PACKAGES="libcamera man-db man-pages intel-ucode openssh pipewire xdg-user-dirs xf86-input-synaptics dhcpcd "
 
 # Desktop Packages
-CUSTOM_PACKAGES+="ttf-fira-code ttf-nerd-fonts-symbols-common "
+CUSTOM_PACKAGES+="ttf-fira-code noto-fonts ttf-nerd-fonts-symbols-common "
 
 # Utility Packages
 CUSTOM_PACKAGES+="rfkill sudo rsync unrar unzip wget zip cmake iwd nano git go bat fzf "
