@@ -13,7 +13,7 @@ CUSTOM_PACKAGES="libcamera man-db man-pages intel-ucode openssh pipewire xdg-use
 CUSTOM_PACKAGES+="ttf-fira-code "
 
 # Utility Packages
-CUSTOM_PACKAGES+="rfkill sudo rsync unrar unzip wget zip cmake iwd nano git go "
+CUSTOM_PACKAGES+="rfkill sudo rsync unrar unzip wget zip cmake iwd nano git go bat fzf "
 
 # Loading keymap
 loadkeys $KEYMAP

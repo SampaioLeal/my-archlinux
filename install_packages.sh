@@ -33,6 +33,8 @@ yay -S --noconfirm mako
 ###
 ### Installing ZSH
 ###
+ZSH_CUSTOM=$HOME/.oh-my-zsh/custom
+
 echo "Installing ZSH..."
 yay -S --noconfirm zsh
 sudo usermod --shell /bin/zsh $USER_NAME
@@ -44,6 +46,9 @@ cp -r ./zsh/.zshrc $HOME/.zshrc
 ###
 echo "Installing Oh My ZSH..."
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM}/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM}/plugins/zsh-completions
 
 ###
 ### Installing Alacritty
@@ -76,8 +81,40 @@ echo "Installing MS Edge..."
 yay -S --noconfirm microsoft-edge-stable-bin
 
 ###
+### Installing pokemon-colorscripts
+###
+echo "Installing pokemon-colorscripts..."
+yay -S --noconfirm pokemon-colorscripts-git
+
+###
+### Installing NVM and Yarn
+###
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+source ~/.zshrc
+nvm install --lts
+npm install -g yarn
+
+###
+### Install Deno
+###
+
+###
+### Install kubernetes things (kubectl, ksutomize, krew (ctx and ns), lens, helm)
+###
+
+###
+### Install aws things (awscli, awsp)
+###
+yarn global add awsp
+
+###
 ### Installing LightDM
 ###
 yay -S --noconfirm lightdm lightdm-theme-neon-git
-cat /etc/lightdm/web-greeter.yml
 systemctl enable lightdm.service
+sudo touch /etc/lightdm/web-greeter.yml
+sudo cat > /etc/lightdm/web-greeter.yml <<EOF
+greeter:
+    theme: neon
+EOF
+

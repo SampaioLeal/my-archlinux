@@ -12,6 +12,9 @@ HIST_STAMPS="dd/mm/yyyy"
 
 plugins=(
   git 
+  npm
+  nvm
+  docker
   zsh-syntax-highlighting 
   zsh-autosuggestions
 )
@@ -19,28 +22,30 @@ fpath+=${ZSH_CUSTOM}/plugins/zsh-completions/src
 
 source $ZSH/oh-my-zsh.sh
 
-# You may need to manually set your language environment
-# export LANG=pt_BR.UTF-8
-
 # NodeJS Version Manager
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
-# Yarn Package Manager
-export PATH="$PATH:$HOME/.yarn/bin"
-
-# Deno Runtime
 export DENO_INSTALL="$HOME/.deno"
-export PATH="$DENO_INSTALL/bin:$PATH"
 
-# Go Language
-export PATH="$HOME/go/bin:$PATH"
-# Kubectl Plugin Manager
-export PATH="$HOME/.krew/bin:$PATH"
+typeset -U path
+
+path+=(
+  "${HOME}/.yarn/bin"
+  "${DENO_INSTALL}/bin"
+  "${HOME}/go/bin"
+  "${HOME}/.krew/bin"
+)
 
 # Personal Aliases
 alias awsp="source _awsp"
+
+# Kubernetes completion
+[[ $commands[kubectl] ]] && source <(kubectl completion zsh)
+
+# Helm completion
+[[ $commands[helm] ]] && source <(helm completion zsh)
 
 # Personal Functions
 pokemon-colorscripts -r
