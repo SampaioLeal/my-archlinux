@@ -3,7 +3,7 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_CUSTOM=$HOME/.oh-my-zsh/custom
 ZSH_THEME="spaceship"
 
-zstyle ':omz:update' mode auto
+zstyle ":omz:update" mode auto
 
 # e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
 COMPLETION_WAITING_DOTS="true"
