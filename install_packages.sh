@@ -13,7 +13,7 @@ cd && rm -rf $HOME/yay
 HYPRLAND_CONFIG=$HOME/.config/hypr/hyprland.conf
 
 echo "Installing Hyprland..."
-yay -S --noconfirm hyprland-bin xdg-desktop-portal-hyprland-git
+yay -S --noconfirm hyprland xdg-desktop-portal-hyprland
 echo "Creating the config file..."
 mkdir -p $HOME/.config/hypr
 
@@ -63,11 +63,10 @@ echo "Installing Discord..."
 yay -S --noconfirm discord
 
 ###
-### Installing Opera
+### Installing MS Edge Browser
 ###
-echo "Installing Opera..."
-yay -S --noconfirm opera
-yay -S --noconfirm opera-adblock-complete
+echo "Installing MS Edge..."
+yay -S --noconfirm microsoft-edge-stable-bin
 
 ###
 ### Installing LightDM

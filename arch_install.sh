@@ -2,12 +2,12 @@
 DRIVE="/dev/nvme0n1"
 HOSTNAME="arch"
 TIMEZONE="America/Sao_Paulo"
-KEYMAP="br_abnt2"
+KEYMAP="br-abnt2"
 WIRELESS_DEVICE="wlan0"
 USER_NAME="sampaiol"
 
 # Core Packages
-CUSTOM_PACKAGES="libcamera man-db man-pages intel-ucode openssh pipewire xdg-user-dirs xf86-input-synaptics "
+CUSTOM_PACKAGES="libcamera man-db man-pages intel-ucode openssh pipewire xdg-user-dirs xf86-input-synaptics dhcpcd "
 
 # Desktop Packages
 CUSTOM_PACKAGES+="ttf-fira-code "
@@ -16,7 +16,7 @@ CUSTOM_PACKAGES+="ttf-fira-code "
 CUSTOM_PACKAGES+="rfkill sudo rsync unrar unzip wget zip cmake iwd nano git go "
 
 # Loading keymap
-loadkeys br-abnt2
+loadkeys $KEYMAP
 
 set -e
 
@@ -125,8 +125,12 @@ editor 0" > /boot/loader/loader.conf
 
 enable_services() {
   echo "Enabling services..."
+
   rfkill unblock all
   systemctl enable iwd
+  
+  systemctl enable dhcpcd.service
+  echo "noarp" >> /etc/dhcpcd.conf
 }
 
 set_default_user() {
