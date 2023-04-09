@@ -11,8 +11,6 @@ ZSH_CUSTOM=$HOME/.oh-my-zsh/custom
 echo "Installing ZSH..."
 yay -S --noconfirm zsh
 sudo usermod --shell /bin/zsh $USER_NAME
-echo "Copying the config files..."
-cp -r ./zsh/.zshrc $HOME/.zshrc
 
 ###
 ### Installing Oh My ZSH
@@ -24,5 +22,8 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM}
 git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM}/plugins/zsh-completions --depth=1
 git clone https://github.com/spaceship-prompt/spaceship-prompt.git "${ZSH_CUSTOM}/themes/spaceship-prompt" --depth=1
 ln -s "${ZSH_CUSTOM}/themes/spaceship-prompt/spaceship.zsh-theme" "${ZSH_CUSTOM}/themes/spaceship.zsh-theme"
+
+echo "Copying the config files..."
+cp -r ./zsh/.zshrc $HOME/.zshrc
 
 env zsh ./install_packages.sh

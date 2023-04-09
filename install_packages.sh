@@ -1,6 +1,5 @@
 #!/bin/bash
 USER_NAME="$(whoami)"
-INITIAL_DIR="$(pwd)"
 
 set -e
 
