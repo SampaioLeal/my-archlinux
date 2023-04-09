@@ -9,7 +9,7 @@ set -e
 ###
 echo "Installing yay..."
 cd /opt
-sudo git clone https://aur.archlinux.org/yay.git
+sudo git clone https://aur.archlinux.org/yay.git --depth=1
 sudo chown -R $USER_NAME:users ./yay
 cd ./yay && makepkg -si --noconfirm
 cd $INITIAL_DIR
@@ -20,15 +20,9 @@ cd $INITIAL_DIR
 HYPRLAND_CONFIG=$HOME/.config/hypr/hyprland.conf
 
 echo "Installing Hyprland..."
-yay -S --noconfirm hyprland xdg-desktop-portal-hyprland
+yay -S --noconfirm hyprland xdg-desktop-portal-hyprland waybar-hyprland wlogout swaylock-effects
 echo "Creating the config file..."
 mkdir -p $HOME/.config/hypr
-
-###
-### Installing Mako
-###
-echo "Installing Mako..."
-yay -S --noconfirm mako
 
 ###
 ### Installing ZSH
@@ -46,48 +40,21 @@ cp -r ./zsh/.zshrc $HOME/.zshrc
 ###
 echo "Installing Oh My ZSH..."
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM}/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM}/plugins/zsh-syntax-highlighting
-git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM}/plugins/zsh-completions
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM}/plugins/zsh-autosuggestions --depth=1
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM}/plugins/zsh-syntax-highlighting --depth=1
+git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM}/plugins/zsh-completions --depth=1
+git clone https://github.com/spaceship-prompt/spaceship-prompt.git "${ZSH_CUSTOM}/themes/spaceship-prompt" --depth=1
+ln -s "${ZSH_CUSTOM}/themes/spaceship-prompt/spaceship.zsh-theme" "${ZSH_CUSTOM}/themes/spaceship.zsh-theme"
 
 env zsh
 
 ###
-### Installing Alacritty
+### Installing things
 ###
-echo "Installing Alacritty..."
-yay -S --noconfirm alacritty
-
-###
-### Installing VSCode
-###
-echo "Installing VSCode..."
-yay -S --noconfirm visual-studio-code-bin
-
-###
-### Installing Spotify
-###
-echo "Installing Spotify..."
-yay -S --noconfirm spotify
-
-###
-### Installing Discord
-###
-echo "Installing Discord..."
-yay -S --noconfirm discord
-
-###
-### Installing MS Edge Browser
-###
-echo "Installing MS Edge..."
-yay -S --noconfirm microsoft-edge-stable-bin
-
-###
-### Installing pokemon-colorscripts
-###
-echo "Installing pokemon-colorscripts..."
-yay -S --noconfirm pokemon-colorscripts-git
-
+# TODO: add image viewer
+echo "Installing things..."
+yay -S --noconfirm polkit-gnome ffmpeg kitty visual-studio-code-bin spotify discord microsoft-edge-stable-bin pokemon-colorscripts-git dunst rofi playerctl sddm-git
+ 
 ###
 ### Installing NVM and Yarn
 ###
@@ -102,7 +69,7 @@ npm install -g yarn
 curl -fsSL https://deno.land/x/install/install.sh | sh
 
 ###
-### Install kubernetes things (kubectl, ksutomize, krew (ctx and ns), lens, helm)
+### Install kubernetes things (docker, kubectl, ksutomize, krew (ctx and ns), lens, helm)
 ###
 
 ###
@@ -110,14 +77,4 @@ curl -fsSL https://deno.land/x/install/install.sh | sh
 ###
 yarn global add awsp
 
-###
-### Installing LightDM
-###
-yay -S --noconfirm lightdm lightdm-theme-neon-git
-systemctl enable lightdm.service
-sudo touch /etc/lightdm/web-greeter.yml
-sudo cat > /etc/lightdm/web-greeter.yml <<EOF
-greeter:
-    theme: neon
-EOF
-
+# TODO: configure pipewire
