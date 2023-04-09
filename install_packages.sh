@@ -6,7 +6,7 @@ USERNAME="$(whoami)"
 ### Installing yay
 ###
 echo "Installing yay..."
-sudo git clone https://aur.archlinux.org/yay.git $HOME/yay
+git clone https://aur.archlinux.org/yay.git $HOME/yay
 cd $HOME/yay && makepkg -Si --noconfirm
 cd && rm -rf $HOME/yay
 
