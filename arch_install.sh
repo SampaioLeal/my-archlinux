@@ -128,7 +128,7 @@ initrd /initramfs-linux.img
 options root=${DRIVE}p3 rw" > /boot/loader/entries/arch.conf
 
   echo "default arch
-timeout 3
+timeout 0
 editor 0" > /boot/loader/loader.conf
 }
 
