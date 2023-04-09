@@ -135,7 +135,7 @@ enable_services() {
 
 set_default_user() {
   echo "Setting up a default user..."
-  useradd -m $USER_NAME
+  useradd -m -G users $USER_NAME
 
   echo "Setting password for default user..."
   passwd $USER_NAME

@@ -7,8 +7,10 @@ INITIAL_DIR="$(pwd)"
 ### Installing yay
 ###
 echo "Installing yay..."
-git clone https://aur.archlinux.org/yay.git /opt/yay
-cd /opt/yay && makepkg -Si --noconfirm
+cd /opt
+sudo git clone https://aur.archlinux.org/yay.git
+sudo chown -R $USERNAME:users ./yay
+cd ./yay && makepkg -si --noconfirm
 cd $INITIAL_DIR
 
 ###
