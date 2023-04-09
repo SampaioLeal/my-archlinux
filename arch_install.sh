@@ -162,11 +162,11 @@ setup() {
 
   echo "Chrooting into installed system to continue setup..."
   cp $0 /mnt/setup.sh
-  cp /tmp/install_packages.sh /mnt/post-setup/install_packages.sh
-  cp -r /tmp/zsh /mnt/post-setup/zsh
+  cp ./install_packages.sh /mnt/post-setup/install_packages.sh
+  cp -r ./zsh /mnt/post-setup/zsh
   arch-chroot /mnt ./setup.sh chroot
 
-  if [ -f /mnt/tmp/setup.sh ]
+  if [ -f /mnt/setup.sh ]
   then
       echo "ERROR: Something failed inside the chroot, not unmounting filesystems so you can investigate."
       echo "Make sure you unmount everything before you try to run this script again."
