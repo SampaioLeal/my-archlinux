@@ -1,4 +1,7 @@
 #!/bin/bash
+
+USERNAME="$(whoami)"
+
 ###
 ### Installing yay
 ###
@@ -28,9 +31,9 @@ yay -S --noconfirm mako
 ###
 echo "Installing ZSH..."
 yay -S --noconfirm zsh
-usermod --shell /bin/zsh $USER_NAME
+sudo usermod --shell /bin/zsh $USER_NAME
 echo "Copying the config files..."
-cp -r /tmp/zsh/.zshrc $HOME/.zshrc
+cp -r ./zsh/.zshrc $HOME/.zshrc
 
 ###
 ### Installing Oh My ZSH
