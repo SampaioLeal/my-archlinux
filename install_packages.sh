@@ -1,14 +1,15 @@
 #!/bin/bash
 
 USERNAME="$(whoami)"
+INITIAL_DIR="$(pwd)"
 
 ###
 ### Installing yay
 ###
 echo "Installing yay..."
-git clone https://aur.archlinux.org/yay.git $HOME/yay
-cd $HOME/yay && makepkg -Si --noconfirm
-cd && rm -rf $HOME/yay
+git clone https://aur.archlinux.org/yay.git /opt/yay
+cd /opt/yay && makepkg -Si --noconfirm
+cd $INITIAL_DIR
 
 ###
 ### Installing Hyprland
