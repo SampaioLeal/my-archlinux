@@ -4,7 +4,7 @@
   "height": 24,
   // "width": 1366,
   "spacing": 4,
-  "modules-left": ["sway/workspaces", "sway/mode", "custom/spotify"],
+  "modules-left": ["wlr/workspaces", "sway/mode", "custom/spotify"],
   "modules-center": ["sway/window"],
   "modules-right": [
     "pulseaudio",
@@ -15,21 +15,11 @@
     "tray",
     "clock"
   ],
-  "sway/workspaces": {
-    "disable-scroll": true,
-    "all-outputs": false,
+  "wlr/workspaces": {
+    "on-click": "activate",
     "format": "{icon}",
-    "format-icons": {
-      "1:web": "",
-      "2:code": "",
-      "3:term": "",
-      "4:work": "",
-      "5:music": "",
-      "6:docs": "",
-      "urgent": "",
-      "focused": "",
-      "default": ""
-    }
+    "on-scroll-up": "hyprctl dispatch workspace e+1",
+    "on-scroll-down": "hyprctl dispatch workspace e-1"
   },
   "sway/mode": {
     "format": "<span style=\"italic\">{}</span>"
