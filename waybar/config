@@ -4,7 +4,7 @@
   "height": 24,
   // "width": 1366,
   "spacing": 4,
-  "modules-left": ["wlr/workspaces", "custom/spotify"],
+  "modules-left": ["wlr/workspaces", "tray", "custom/spotify"],
   "modules-center": ["hyprland/window"],
   "modules-right": [
     "wireplumber",
@@ -12,7 +12,6 @@
     "cpu",
     "memory",
     "battery",
-    "tray",
     "clock"
   ],
   // Modules on Left
@@ -32,6 +31,9 @@
       "default": ""
     }
   },
+  "tray": {
+    "spacing": 10
+  },
   "custom/spotify": {
     "format": " {}",
     "max-length": 40,
@@ -45,9 +47,6 @@
     "separate-outputs": true
   },
   // Modules on Right
-  "tray": {
-    "spacing": 10
-  },
   "clock": {
     "interval": 60,
     "format": " {:%H:%M |  %d-%m-%Y}",
