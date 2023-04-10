@@ -17,9 +17,20 @@
   ],
   "wlr/workspaces": {
     "on-click": "activate",
-    "format": "{icon}",
     "on-scroll-up": "hyprctl dispatch workspace e+1",
-    "on-scroll-down": "hyprctl dispatch workspace e-1"
+    "on-scroll-down": "hyprctl dispatch workspace e-1",
+    "format": "{icon}",
+    "format-icons": {
+      "1:web": "",
+      "2:code": "",
+      "3:term": "",
+      "4:work": "",
+      "5:music": "",
+      "6:docs": "",
+      "urgent": "",
+      "focused": "",
+      "default": ""
+    }
   },
   "sway/mode": {
     "format": "<span style=\"italic\">{}</span>"
