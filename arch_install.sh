@@ -7,7 +7,7 @@ WIRELESS_DEVICE="wlan0"
 USER_NAME="sampaiol"
 
 # Core Packages
-CUSTOM_PACKAGES="libcamera man-db man-pages intel-ucode openssh pipewire xdg-user-dirs xf86-input-synaptics dhcpcd "
+CUSTOM_PACKAGES="libcamera man-db man-pages intel-ucode openssh pipewire wireplumber xdg-user-dirs xf86-input-synaptics dhcpcd "
 
 # Desktop Packages
 CUSTOM_PACKAGES+="ttf-fira-code noto-fonts ttf-nerd-fonts-symbols-common "

@@ -4,10 +4,10 @@
   "height": 24,
   // "width": 1366,
   "spacing": 4,
-  "modules-left": ["wlr/workspaces", "sway/mode", "custom/spotify"],
-  "modules-center": ["sway/window"],
+  "modules-left": ["wlr/workspaces", "custom/spotify"],
+  "modules-center": ["hyprland/window"],
   "modules-right": [
-    "pulseaudio",
+    "wireplumber",
     "network",
     "cpu",
     "memory",
@@ -15,78 +15,67 @@
     "tray",
     "clock"
   ],
+  // Modules on Left
   "wlr/workspaces": {
     "on-click": "activate",
     "on-scroll-up": "hyprctl dispatch workspace e+1",
     "on-scroll-down": "hyprctl dispatch workspace e-1",
-    "format": "{icon}",
+    "format": "{icon} {name}",
     "format-icons": {
-      "1:web": "",
-      "2:code": "",
-      "3:term": "",
-      "4:work": "",
-      "5:music": "",
-      "6:docs": "",
-      "urgent": "",
-      "focused": "",
-      "default": ""
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": "",
+      "urgent": "",
+      "focused": "",
+      "default": ""
     }
-  },
-  "sway/mode": {
-    "format": "<span style=\"italic\">{}</span>"
-  },
-  "tray": {
-    // "icon-size": 21,
-    "spacing": 10
-  },
-  "clock": {
-    "format-alt": "{:%Y-%m-%d}"
-  },
-  "cpu": {
-    "format": "{usage}% "
-  },
-  "memory": {
-    "format": "{}% "
-  },
-  "battery": {
-    "bat": "BAT0",
-    "states": {
-      // "good": 95,
-      "warning": 30,
-      "critical": 15
-    },
-    "format": "{capacity}% {icon}",
-    // "format-good": "", // An empty format will hide the module
-    // "format-full": "",
-    "format-icons": ["", "", "", "", ""]
-  },
-  "network": {
-    // "interface": "wlp2s0", // (Optional) To force the use of this interface
-    "format-wifi": "{essid} ({signalStrength}%) ",
-    "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
-    "format-disconnected": "Disconnected ⚠"
-  },
-  "pulseaudio": {
-    //"scroll-step": 1,
-    "format": "{volume}% {icon}",
-    "format-bluetooth": "{volume}% {icon}",
-    "format-muted": "",
-    "format-icons": {
-      "headphones": "",
-      "handsfree": "",
-      "headset": "",
-      "phone": "",
-      "portable": "",
-      "car": "",
-      "default": ["", ""]
-    },
-    "on-click": "pavucontrol"
   },
   "custom/spotify": {
     "format": " {}",
     "max-length": 40,
-    "interval": 30, // Remove this if your script is endless and write in loop
-    "exec": "$HOME/.config/waybar/mediaplayer.sh 2> /dev/null", // Script in resources folder
+    "interval": 30,
+    "exec": "$HOME/.config/waybar/mediaplayer.sh 2> /dev/null",
     "exec-if": "pgrep spotify"
+  },
+  // Modules on Center
+  "hyprland/window": {
+    "format": "👉 {}",
+    "separate-outputs": true
+  },
+  // Modules on Right
+  "tray": {
+    "spacing": 10
+  },
+  "clock": {
+    "format": " {:%H:%M}  {:%d/%m/%Y}",
+    "interval": 60
+  },
+  "cpu": {
+    "format": " {usage}%"
+  },
+  "memory": {
+    "format": " {}%"
+  },
+  "battery": {
+    "bat": "BAT0",
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-icons": ["", "", "", "", ""]
+  },
+  "network": {
+    "format-wifi": " {essid} ({signalStrength}%)",
+    "format-ethernet": "  {ifname}: {ipaddr}/{cidr}",
+    "format-disconnected": "⚠ Disconnected"
+  },
+  "wireplumber": {
+    "on-click": "helvum",
+    "format": "{icon} {volume}%",
+    "format-muted": "",
+    "format-icons": ["", "", ""]
   }
 }
