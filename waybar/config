@@ -49,8 +49,9 @@
     "spacing": 10
   },
   "clock": {
-    "format": " {:%H:%M}  {:%d/%m/%Y}",
-    "interval": 60
+    "interval": 60,
+    "format": " {:%H:%M |  %d-%m-%Y}",
+    "timezone": "America/Sao_Paulo"
   },
   "cpu": {
     "format": " {usage}%"
@@ -74,7 +75,7 @@
   },
   "wireplumber": {
     "on-click": "helvum",
-    "format": "{icon} {volume}%",
+    "format": " {volume}%",
     "format-muted": "",
     "format-icons": ["", "", ""]
   }
