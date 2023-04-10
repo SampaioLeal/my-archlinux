@@ -41,7 +41,7 @@
   },
   // Modules on Center
   "hyprland/window": {
-    "format": "👉 {}",
+    "format": "{}",
     "separate-outputs": true
   },
   // Modules on Right
