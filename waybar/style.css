@@ -1,7 +1,7 @@
 * {
   border: none;
   border-radius: 0;
-  font-family: "Ubuntu Nerd Font";
+  font-family: "Fira Code Regular";
   font-size: 13px;
   min-height: 0;
 }
@@ -13,7 +13,7 @@ window#waybar {
 
 #window {
   font-weight: bold;
-  font-family: "Ubuntu";
+  font-family: "Fira Code Regular";
 }
 /*
 #workspaces {
@@ -29,8 +29,8 @@ window#waybar {
 }
 
 #workspaces button.active {
-  color: #c9545d;
-  border-top: 2px solid #c9545d;
+  color: #54a4c9;
+  border-top: 2px solid #54a4c9;
 }
 
 #mode {
