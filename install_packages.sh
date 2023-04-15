@@ -18,7 +18,7 @@ mkdir -p $HOME/.config/hypr
 ###
 # TODO: add image viewer
 echo "Installing things..."
-yay -S --noconfirm polkit-gnome ffmpeg kitty visual-studio-code-bin spotify discord microsoft-edge-stable-bin pokemon-colorscripts-git dunst rofi-lbonn-wayland-git playerctl sddm-git
+yay -S --noconfirm polkit-gnome ffmpeg kitty visual-studio-code-bin spotify discord microsoft-edge-stable-bin pokemon-colorscripts-git dunst rofi-lbonn-wayland-git playerctl sddm-git wl-clipboard
 sudo systemctl enable sddm.service
 
 ###
